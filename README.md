@@ -1,3 +1,23 @@
+# Container Params at Runtime with Create React App
+
+This is an example of injecting env variables at runtime with [Create React App](https://github.com/facebookincubator/create-react-app). We can promote docker images across environments by injecting env variables - no rebuilds required!
+
+## Directions
+
+Build and start the image:
+
+  1. `docker build -t sweet-app:latest .`
+  2. `docker run -p 8090:80 -e ENV=drewsenv -e API_URL=/drew cra-env-var-arm64:latest`
+
+Stop the image and start it again with new env variables:
+
+  1. `docker stop sweet-app` (or hit CTRL-C)
+  2. `docker run -p 8090:80 -e ENV=notdrewsenv -e API_URL=/notdrew cra-env-var-arm64:latest`
+
+If you visit `http://localhost:8090` you should see the new env variables. Madness!
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

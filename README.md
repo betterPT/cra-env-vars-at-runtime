@@ -7,12 +7,12 @@ This is an example of injecting env variables at runtime with [Create React App]
 Build and start the image:
 
   1. `docker build -t sweet-app:latest .`
-  2. `docker run -p 8090:80 -e ENV=drewsenv -e API_URL=/drew cra-env-var-arm64:latest`
+  2. `docker run -p 8090:80 -e ENV=drewsenv -e API_URL=/drew sweet-app:latest`
 
 Stop the image and start it again with new env variables:
 
   1. `docker stop sweet-app` (or hit CTRL-C)
-  2. `docker run -p 8090:80 -e ENV=notdrewsenv -e API_URL=/notdrew cra-env-var-arm64:latest`
+  2. `docker run -p 8090:80 -e ENV=notdrewsenv -e API_URL=/notdrew sweet-app:latest`
 
 If you visit `http://localhost:8090` you should see the new env variables. Madness!
 
